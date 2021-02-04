@@ -1,11 +1,12 @@
 from mongoengine import connect, StringField, DynamicDocument, ListField, EmbeddedDocument, FloatField, \
-    EmbeddedDocumentField
+    EmbeddedDocumentField, get_db
+from mongoengine.pymongo_support import list_collection_names
 from mongoengine.queryset import QuerySet
 
 c = connect(db='eland_data', host='192.168.101.41', port=27017, username="admin", password="admin",
             authentication_source="admin")
 
-
+print(list_collection_names(get_db()))
 # c.list_collections()
 class Interest(EmbeddedDocument):
     tag = StringField()
