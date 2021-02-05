@@ -1,3 +1,4 @@
+from algo.model import Model
 
 
 class NoneModel(Model):

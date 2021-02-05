@@ -1,8 +1,8 @@
 from mongoengine import connect, get_db, QuerySet, Q
 from mongoengine.pymongo_support import list_collection_names
 
-from config.MongoDBConfig import MongoDBConfig
-from document.ElandDataDocument import ElandDataDocument
+from config.mongodb_config import MongoDBConfig
+from document.eland_data_document import ElandDataDocument
 
 
 class ElandDataMongoRepo:
