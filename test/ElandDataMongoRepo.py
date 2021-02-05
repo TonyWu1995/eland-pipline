@@ -1,7 +1,9 @@
 from mongoengine import connect, get_db
 from mongoengine.pymongo_support import list_collection_names
 
+from document.ElandDataDocument import ElandDataDocument
 
+#ElandDataDocuemt
 class ElandDataMongoRepo:
 
     def __init__(self):

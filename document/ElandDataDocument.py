@@ -2,40 +2,40 @@ from mongoengine import DynamicEmbeddedDocument, StringField, FloatField, IntFie
     EmbeddedDocumentField
 
 
-class Interest(DynamicEmbeddedDocument):
+class InterestDocument(DynamicEmbeddedDocument):
     tag = StringField()
     score = FloatField()
 
 
-class Location(DynamicEmbeddedDocument):
+class LocationDocument(DynamicEmbeddedDocument):
     region = StringField()
     percentage = FloatField()
 
 
-class HabitWeekDay(DynamicEmbeddedDocument):
+class HabitWeekDayDocument(DynamicEmbeddedDocument):
     weekday = StringField()
     percentage = FloatField()
 
 
-class HabitHour(DynamicEmbeddedDocument):
+class HabitHourDocument(DynamicEmbeddedDocument):
     hour = IntField()
     percentage = FloatField()
 
 
-class ElandData(DynamicDocument):
+class ElandDataDocument(DynamicDocument):
     meta = {
         "collection": "20210201"
     }
     uuid = StringField()
-    location = ListField(EmbeddedDocumentField(Location))
+    location = ListField(EmbeddedDocumentField(LocationDocument))
     platform = ListField()
     browser = ListField()
     os = ListField()
     sex = ListField()
     income = ListField()
     age = ListField()
-    habit_weekday = ListField(EmbeddedDocumentField(HabitWeekDay))
-    habit_hour = ListField(EmbeddedDocumentField(HabitHour))
+    habit_weekday = ListField(EmbeddedDocumentField(HabitWeekDayDocument))
+    habit_hour = ListField(EmbeddedDocumentField(HabitHourDocument))
     month_usage_score = FloatField()
-    interest = ListField(EmbeddedDocumentField(Interest))
+    interest = ListField(EmbeddedDocumentField(InterestDocument))
     intent = ListField()
