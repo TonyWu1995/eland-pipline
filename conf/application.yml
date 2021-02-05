@@ -1,9 +1,14 @@
-segment:
-- null_value: 1
-  k: 1
-- null_value: 1
-  k: 1
-- null_value: 1
-  k: 1
-- null_value: 1
-  k: 1
+mongodb:
+  host: "192.168.101.41"
+  port: 27017
+  database: "eland_data"
+  username: "admin"
+  password: "admin"
+
+# TODO CHECK
+mysql:
+  host: "192.168.101.41"
+  port: 27017
+  database: "eland_data"
+  username: "admin"
+  password: "admin"

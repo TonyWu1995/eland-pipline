@@ -1,19 +1,25 @@
-import pymongo
+from mongoengine import connect, get_db, QuerySet, Q
+from mongoengine.pymongo_support import list_collection_names
+
+from config.MongoDBConfig import MongoDBConfig
+from document.ElandDataDocument import ElandDataDocument
 
 
-class ElandMongoRepo:
-    # TODO mongo config
-    def __init__(self):
-        self.client = pymongo.MongoClient(host="192.168.101.41", port=27017, username="admin", password="admin")
-        self.db = self.client['eland_data']
+class ElandDataMongoRepo:
 
-    def find_all(self, collections: str, query1=None, query2=None):
-        if query2 is None:
-            return self.db[collections].find(query1)
-        else:
-            return self.db[collections].find(query1, query2)
+    def __init__(self, config: MongoDBConfig):
+        self._connection = connect(db=config.database, host=config.host, port=config.port, username=config.username,
+                                   password=config.password,
+                                   authentication_source="admin")
+        self._db = get_db()
 
-    def count(self, collections: str, query1=None, query2=None):
-        return self.find_all(collections, query1, query2).count()
+    def find_all_by_query(self, collection_name, q: Q):
+        query_set = QuerySet(ElandDataDocument,
+                             ElandDataDocument().switch_collection(collection_name)._get_collection())
+        return query_set.filter(q).all()
 
+    def find_all_by_query_only(self, collection_name, q: Q, *field):
+        return self.find_all_by_query(collection_name, q).only(*field)
 
+    def list_collection_names(self):
+        return list_collection_names(self._db)
