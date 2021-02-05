@@ -23,9 +23,6 @@ class HabitHourDocument(DynamicEmbeddedDocument):
 
 
 class ElandDataDocument(DynamicDocument):
-    meta = {
-        "collection": "20210201"
-    }
     uuid = StringField()
     location = ListField(EmbeddedDocumentField(LocationDocument))
     platform = ListField()
