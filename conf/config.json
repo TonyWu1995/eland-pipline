@@ -1,0 +1,9 @@
+{
+  "segment": [
+    {
+      "key": "gender",
+      "algo": "None",
+      "day": 1
+    }
+  ]
+}
