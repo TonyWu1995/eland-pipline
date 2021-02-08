@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import Enum, IntEnum
 
 
-class Age(Enum):
+class Age(IntEnum):
     UNKNOWN = 0
     EIGHTEEN_TWENTY_FOUR = 1
     TWENTY_FIVE_THIRTY_FOUR = 2

@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import IntEnum
 
 
-class Income(Enum):
+class Income(IntEnum):
     UNKNOWN = 0
     ZERO_THIRTY = 1
     THIRTY_SIXTY = 2

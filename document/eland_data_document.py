@@ -37,9 +37,10 @@ class ElandDataDocument(DynamicDocument):
     gender_tag = EnumField(Gender)
     income_tag = EnumField(Income)
     age_tag = EnumField(Age)
+    geo_tag = EnumField(Geo)
     create_at = DateTimeField()
     update_at = DateTimeField()
-    geo_tag = EnumField(Geo)
+
     sex = ListField()
     income = ListField()
     age = ListField()

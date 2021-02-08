@@ -1,6 +1,6 @@
-from enum import Enum
+from enum import IntEnum
 
 
-class AlgoType(Enum):
+class AlgoType(IntEnum):
     KMEAN = 1
     NONE = 2

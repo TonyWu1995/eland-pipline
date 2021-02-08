@@ -2,6 +2,8 @@ import logging
 
 from mongoengine import Q
 
+from document.eland_data_document import ElandDataDocument
+from service.eland_criteria_builder import ElandCriteriaBuilder
 from service.eland_mongo_service import ElandDataMongoService
 
 log = logging.getLogger(__name__)
@@ -11,19 +13,18 @@ class GenerateSegmentService:
 
     def __init__(self, mongo_repo: ElandDataMongoService):
         self.__mongo_repo = mongo_repo
-        pass
 
     def generate(self, config):
         log.info("generate() config={}".format(config))
         # q = {"uuid": "74FAE51867348A0E2AACE2D0CF140C83"}
-        q = {"gender_tag": 2}
+        q = ElandCriteriaBuilder().build(config['criteria_key'], config['value'], '', '')
+        # print(ElandDataDocument._fields)
+        print(q)
         print(self.__mongo_repo.find_all_by_query_only("test_aggregate", Q(**q), "uuid"))
         # print(self.__calc_eland_data_collection_name_list(2))
         # print(self.__mongo_repo.list_collection_names())
         # self.__mongo_repo.find_all_by_query_only()
         pass
-
-
 
     # TODO rm check if un use
     # def __calc_eland_data_collection_name_list(self, days):
