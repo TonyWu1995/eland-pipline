@@ -1,16 +1,16 @@
-s="".join(["A", "ABC"])
-print(s)
+from mongoengine import Q
+
 # Q
 # from mongoengine import Q
 #
-# c = None
-# for row in ['302df362ef5d4f5595a3186fa7b32a20021815', '30135a91d68e4fe790c07ea1fa094edb091919']:
-#     flt = {'uuid': row}
-#     if c is None:
-#         c = Q(**flt)
-#     else:
-#         c |= Q(**flt)
-# print(c)
+c = None
+for row in ['302df362ef5d4f5595a3186fa7b32a20021815', '30135a91d68e4fe790c07ea1fa094edb091919']:
+    flt = {'uuid': row}
+    if c is None:
+        c = Q(**flt)
+    else:
+        c |= Q(**flt)
+print(c)
 
 # switch colections
 # QuerySet(ElandData, ElandData().switch_collection("test")._get_collection())

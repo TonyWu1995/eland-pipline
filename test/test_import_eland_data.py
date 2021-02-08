@@ -12,7 +12,7 @@ connect(db="eland_data", host="127.0.0.1", username="admin",
         authentication_source="admin")
 
 ElandDataDocument(
-    uuid="74FAE51867348A0E2AACE2D0CF130C82",
+    uuid="74FAE51867348A0E2AACE2D0CF136C75",
     location=[LocationDocument(region="新加坡", percentage=0)],
     platform=["Mobile"],
     browser=["Line"],
@@ -21,8 +21,8 @@ ElandDataDocument(
     geo_tag=Geo.TAIWAN,
     age_tag=Age.TWENTY_FIVE_THIRTY_FOUR,
     income_tag=Income.ONE_HUNDRED,
-    create_at=dt.datetime(2021, 1, 1, 0, 0, 0),
-    update_at=dt.datetime(2021, 1, 1, 0, 0, 0),
+    create_at=123,
+    update_at=456,
     sex=[48.81, 51.19],
     income=[47.77, 23.21, 16.13, 12.89],
     age=[33.0, 22.89, 14.45, 11.53, 18.13],

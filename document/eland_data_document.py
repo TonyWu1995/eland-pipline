@@ -27,7 +27,6 @@ class HabitHourDocument(DynamicEmbeddedDocument):
     percentage = FloatField()
 
 
-
 class ElandDataDocument(DynamicDocument):
     uuid = StringField()
     location = ListField(EmbeddedDocumentField(LocationDocument))
@@ -38,8 +37,8 @@ class ElandDataDocument(DynamicDocument):
     income_tag = EnumField(Income)
     age_tag = EnumField(Age)
     geo_tag = EnumField(Geo)
-    create_at = DateTimeField()
-    update_at = DateTimeField()
+    create_at = IntField()
+    update_at = IntField()
 
     sex = ListField()
     income = ListField()

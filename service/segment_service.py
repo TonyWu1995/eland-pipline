@@ -2,7 +2,8 @@ import logging
 
 from mongoengine import Q
 
-from document.eland_data_document import ElandDataDocument
+from constant.age import Age
+from constant.gender import Gender
 from service.eland_criteria_builder import ElandCriteriaBuilder
 from service.eland_mongo_service import ElandDataMongoService
 
@@ -17,10 +18,13 @@ class GenerateSegmentService:
     def generate(self, config):
         log.info("generate() config={}".format(config))
         # q = {"uuid": "74FAE51867348A0E2AACE2D0CF140C83"}
-        q = ElandCriteriaBuilder().build(config['criteria_key'], config['value'], '', '')
-        # print(ElandDataDocument._fields)
+        q = ElandCriteriaBuilder().build(config['criteria_key'], config['value'], 123, 456)
+        # q = {'age_tag': Gender.FEMALE, 'update_at__gte': 124, 'update_at__lt': 457}
+        # q = {'gender_tag': Gender.FEMALE, 'update_at__gt': 123}
         print(q)
-        print(self.__mongo_repo.find_all_by_query_only("test_aggregate", Q(**q), "uuid"))
+        for row in self.__mongo_repo.find_all_by_query_only("test_aggregate", Q(**q), "uuid", "gender_tag",
+                                                            "update_at"):
+            print(row.uuid, row.gender_tag, row.update_at)
         # print(self.__calc_eland_data_collection_name_list(2))
         # print(self.__mongo_repo.list_collection_names())
         # self.__mongo_repo.find_all_by_query_only()
