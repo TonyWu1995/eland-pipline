@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from constant.algo_type import AlgoType
 from ml.algo.kmean_model import KmeanModel
-from ml.calc_segment_service import CalcSegmentService
+from ml.calc_ml_service import CalcSegmentService
 
 
 class TestCalcSegmentService(TestCase):
