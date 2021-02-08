@@ -1,5 +1,10 @@
 from mongoengine import DynamicEmbeddedDocument, StringField, FloatField, IntField, DynamicDocument, ListField, \
-    EmbeddedDocumentField
+    EmbeddedDocumentField, DateTimeField, EnumField
+
+from document.constant.age import Age
+from document.constant.gender import Gender
+from document.constant.geo import Geo
+from document.constant.income import Income
 
 
 class InterestDocument(DynamicEmbeddedDocument):
@@ -22,12 +27,19 @@ class HabitHourDocument(DynamicEmbeddedDocument):
     percentage = FloatField()
 
 
+
 class ElandDataDocument(DynamicDocument):
     uuid = StringField()
     location = ListField(EmbeddedDocumentField(LocationDocument))
     platform = ListField()
     browser = ListField()
     os = ListField()
+    gender_tag = EnumField(Gender)
+    income_tag = EnumField(Income)
+    age_tag = EnumField(Age)
+    create_at = DateTimeField()
+    update_at = DateTimeField()
+    geo_tag = EnumField(Geo)
     sex = ListField()
     income = ListField()
     age = ListField()
