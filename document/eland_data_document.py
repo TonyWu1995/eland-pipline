@@ -1,5 +1,5 @@
 from mongoengine import DynamicEmbeddedDocument, StringField, FloatField, IntField, DynamicDocument, ListField, \
-    EmbeddedDocumentField, DateTimeField, EnumField
+    EmbeddedDocumentField, EnumField
 
 from constant.age import Age
 from constant.gender import Gender
@@ -39,7 +39,6 @@ class ElandDataDocument(DynamicDocument):
     geo_tag = EnumField(Geo)
     create_at = IntField()
     update_at = IntField()
-
     sex = ListField()
     income = ListField()
     age = ListField()

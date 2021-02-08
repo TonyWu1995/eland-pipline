@@ -5,7 +5,7 @@ from ml.algo.kmean_model import KmeanModel
 from ml.calc_ml_service import CalcMLService
 
 
-class TestCalcSegmentService(TestCase):
+class TestCalcMLService(TestCase):
 
     def test_get_model_kmean(self):
         kmean = KmeanModel()

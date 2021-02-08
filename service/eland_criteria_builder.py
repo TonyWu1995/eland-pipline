@@ -15,17 +15,19 @@ class ElandCriteriaBuilder:
         ElandDataDocument.geo_tag.name: Geo.__members__,
     }
 
-    def __init__(self):
-        pass
-
-    def build(self, criteria_key, criteria_value, from_timestamp, to_timestamp):
-        #  {'age_tag': Gender.FEMALE, 'update_at__gte': 124, 'update_at__lt': 457}
+    def query_build(self, criteria_key, criteria_value, from_timestamp, to_timestamp):
         update_at = ElandDataDocument.update_at.name
         return {
             criteria_key: self._get_criteria_value(criteria_key, criteria_value),
             update_at + "__gte": from_timestamp,
             update_at + "__lt": to_timestamp
         }
+
+    def only_build(self, criteria_key):
+        result = ["uuid"]
+        if criteria_key == "interest__tag":
+            result.append("interest__score")
+        return result
 
     def __build_update_at_criteria(self, from_timestamp, to_timestamp):
         update_at = ElandDataDocument.update_at.name

@@ -2,15 +2,15 @@
   "segment": [
     {
       "criteria_key": "gender_tag",
-      "value": "FEMALE",
+      "criteria_value": "FEMALE",
       "algo": "None",
-      "day": 1
+      "day": 30
     },
     {
-      "criteria_key": "interest.tag",
-      "value": "族群:健身族",
+      "criteria_key": "interest__tag",
+      "criteria_value": "族群:健身族",
       "algo": "kmean",
-      "day": 1
+      "day": 30
     }
   ]
 }
