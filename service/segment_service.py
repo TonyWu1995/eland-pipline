@@ -25,8 +25,8 @@ class GenerateSegmentService:
     def generate(self, config):
         log.debug("generate() config={}".format(config))
         # TODO config obj
-        query_result_list = self.__query(config['day'], config['criteria_key'], config['criteria_value'])
-        threshold = self.__calc_ml_service.calc(config['algo'],
+        query_result_list = self.__query(config.day, config.criteria_key, config.criteria_value)
+        threshold = self.__calc_ml_service.calc(config.algo,
                                                 np.array([float(result[1]) for result in
                                                           self.__query_result(query_result_list)]))
         # TODO filter and get mysql ctid
