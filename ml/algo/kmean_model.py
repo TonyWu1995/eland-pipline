@@ -1,6 +1,6 @@
 from sklearn.cluster import KMeans
 
-from algo.model import Model
+from ml.algo.model import Model
 
 
 class KmeanModel(Model):

@@ -1,4 +1,4 @@
-from algo.model import Model
+from ml.algo.model import Model
 
 
 class NoneModel(Model):
