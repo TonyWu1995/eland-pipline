@@ -7,4 +7,4 @@ class NoneModel(Model):
         pass
 
     def fit(self, data_list):
-        return data_list
+        return -1

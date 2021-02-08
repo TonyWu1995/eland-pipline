@@ -1,7 +1,8 @@
 {
   "segment": [
     {
-      "key": "gender",
+      "key": "gender_tag",
+      "value": "FEMALE",
       "algo": "None",
       "day": 1
     }
