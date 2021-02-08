@@ -1,9 +1,9 @@
 from mongoengine import connect
 import datetime as dt
-from document.constant.age import Age
-from document.constant.gender import Gender
-from document.constant.geo import Geo
-from document.constant.income import Income
+from constant.age import Age
+from constant.gender import Gender
+from constant.geo import Geo
+from constant.income import Income
 from document.eland_data_document import ElandDataDocument, LocationDocument, HabitWeekDayDocument, HabitHourDocument, \
     InterestDocument
 

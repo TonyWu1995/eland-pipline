@@ -1,10 +1,10 @@
 from mongoengine import DynamicEmbeddedDocument, StringField, FloatField, IntField, DynamicDocument, ListField, \
     EmbeddedDocumentField, DateTimeField, EnumField
 
-from document.constant.age import Age
-from document.constant.gender import Gender
-from document.constant.geo import Geo
-from document.constant.income import Income
+from constant.age import Age
+from constant.gender import Gender
+from constant.geo import Geo
+from constant.income import Income
 
 
 class InterestDocument(DynamicEmbeddedDocument):
