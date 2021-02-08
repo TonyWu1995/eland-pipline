@@ -12,7 +12,7 @@ connect(db="eland_data", host="127.0.0.1", username="admin",
         authentication_source="admin")
 
 ElandDataDocument(
-    uuid="74FAE51867348A0E2AACE2D0CF140C83",
+    uuid="74FAE51867348A0E2AACE2D0CF130C82",
     location=[LocationDocument(region="新加坡", percentage=0)],
     platform=["Mobile"],
     browser=["Line"],

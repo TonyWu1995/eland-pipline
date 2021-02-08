@@ -4,7 +4,7 @@ from logging.config import fileConfig
 from config.config_loader import load_yml_config, load_json_config
 from config.mongodb_config import MongoDBConfig
 from repo.eland_mongo_repo import ElandDataMongoRepo
-from service.SegmentService import GenerateSegmentService
+from service.segment_service import GenerateSegmentService
 
 logging.config.fileConfig('./logging_config.ini', disable_existing_loggers=False)
 log = logging.getLogger(__name__)
