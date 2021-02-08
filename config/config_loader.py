@@ -10,5 +10,5 @@ def load_yml_config(file_path: str, dict_key: str):
 
 
 def load_json_config(file_path):
-    with open(file_path, 'r') as stream:
+    with open(file_path, 'r',encoding="utf-8") as stream:
         return json.load(stream)
