@@ -5,7 +5,7 @@ from config.mongodb_config import MongoDBConfig
 from config.segment_config import SegmentConfig
 from constant.algo_type import AlgoType
 from ml.algo.kmean_model import KmeanModel
-from service.calc_ml_service import CalcSegmentService
+from service.calc_segment_service import CalcSegmentService
 from service.eland_criteria_builder import ElandCriteriaBuilder
 from service.eland_mongo_service import ElandDataMongoService
 from service.segment_service import GenerateSegmentService

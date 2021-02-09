@@ -3,7 +3,7 @@ import time
 
 from mongoengine import Q
 
-from service.calc_ml_service import CalcSegmentService
+from service.calc_segment_service import CalcSegmentService
 from service.eland_criteria_builder import ElandCriteriaBuilder
 from service.eland_mongo_service import ElandDataMongoService
 
