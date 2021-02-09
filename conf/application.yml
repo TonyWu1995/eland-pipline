@@ -13,8 +13,9 @@ mongodb:
   collection-name: "test_aggregate"
 # TODO CHECK
 mysql:
-  host: "192.168.101.41"
-  port: 27017
-  database: "eland_data"
+  host: "localhost"
+  port: 3306
+  database: "id_mapping_db"
   username: "admin"
   password: "admin"
+  table-name: "aggregate_table"
