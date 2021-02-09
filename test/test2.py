@@ -1,10 +1,21 @@
 # from mongoengine import Q
-from itertools import zip_longest
+import numpy as np
+from sklearn.cluster import KMeans
 
-a = [1, 2, 3]
-b = []
-zipped = zip_longest(a, b)
-print(list(zipped))
+x = np.random.random(13876)
+
+print(x)
+# print(x.reshape(-1, 1))
+km = KMeans(n_clusters=3, random_state=0, max_iter=300)
+km.fit(x.reshape(-1,1))  # -1 will be calculated to be 13876 here
+threshold = km.cluster_centers_
+print(threshold)
+# from itertools import zip_longest
+#
+# a = [1, 2, 3]
+# b = []
+# zipped = zip_longest(a, b)
+# print(list(zipped))
 # Q
 # from mongoengine import Q
 #

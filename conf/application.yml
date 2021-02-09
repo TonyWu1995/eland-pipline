@@ -10,6 +10,7 @@ mongodb:
   database: "eland_data"
   username: "admin"
   password: "admin"
+  collection-name: "test_aggregate"
 # TODO CHECK
 mysql:
   host: "192.168.101.41"
