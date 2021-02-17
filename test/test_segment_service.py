@@ -1,6 +1,5 @@
 from unittest import TestCase
 
-# TODO
 from mongoengine import Q
 
 from config.segment_config import SegmentConfig
@@ -114,7 +113,7 @@ class TestGenerateSegmentService(TestCase):
             export_file_name="test_seg_tags_eland_female_{}_ctid_c{}"
         )
         ctid_list = generate_segment_service.generate(config)
-        print(ctid_list)
+
         self.assertEqual(ctid_list, ['1', '2', '3', '4', '5'])
 
     def test_query_eland_data_empty(self):
