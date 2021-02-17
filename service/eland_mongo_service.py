@@ -1,8 +1,12 @@
+import logging
+
 from mongoengine import connect, get_db, QuerySet, Q
 from mongoengine.pymongo_support import list_collection_names
 
 from config.mongodb_config import MongoDBConfig
 from document.eland_data_document import ElandDataDocument
+
+log = logging.getLogger(__name__)
 
 
 class ElandDataMongoService:

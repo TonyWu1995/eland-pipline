@@ -10,10 +10,8 @@ from service.eland_mongo_service import ElandDataMongoService
 
 log = logging.getLogger(__name__)
 
-
 class GenerateSegmentService:
 
-    # TODO mysql connector
     def __init__(self,
                  mongo_repo: ElandDataMongoService,
                  eland_member_mapping_service: ElandMemberMappingService,
@@ -40,6 +38,7 @@ class GenerateSegmentService:
                                                           criteria_value,
                                                           from_timestamp,
                                                           to_timestamp))
+        print(q)
         criteria_only = self.__eland_criteria_builder.only_build(criteria_key)
         query_list = self.__mongo_repo.find_all_by_query_only(None,
                                                               q,

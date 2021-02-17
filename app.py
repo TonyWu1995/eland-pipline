@@ -11,7 +11,7 @@ from service.calc_segment_service import CalcSegmentService
 from service.eland_criteria_builder import ElandCriteriaBuilder
 from service.eland_member_mapping_service import ElandMemberMappingService
 from service.eland_mongo_service import ElandDataMongoService
-from service.segment_service import GenerateSegmentService
+from service.generate_segment_service import GenerateSegmentService
 
 logging.config.fileConfig('./logging_config.ini', disable_existing_loggers=False)
 log = logging.getLogger(__name__)

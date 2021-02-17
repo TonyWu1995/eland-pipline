@@ -29,5 +29,5 @@ class ElandMemberMappingService:
                 "select distinct(ctid) from {} where uuid in {} group by uuid,ctid".format(
                     self.__default_table_name,
                     tuple(uuid_list)))
-
+        print(sql)
         return [row[0] for row in self.session.execute(sql)]

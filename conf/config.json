@@ -4,13 +4,15 @@
       "criteria_key": "gender_tag",
       "criteria_value": "FEMALE",
       "algo": "None",
-      "day": 30
+      "day": 30,
+      "file_name": "test_seg_tags_eland_female_{}_ctid_c{}"
     },
     {
-      "criteria_key": "interest__tag",
-      "criteria_value": "族群:健身族",
-      "algo": "kmean",
-      "day": 30
+      "criteria_key": "age_tag",
+      "criteria_value": "TWENTY_FIVE_THIRTY_FOUR",
+      "algo": "None",
+      "day": 30,
+      "file_name": "test_seg_tags_eland_age_25_34_{}_ctid_c{}"
     }
   ]
 }
