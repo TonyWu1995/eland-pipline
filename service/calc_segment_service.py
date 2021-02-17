@@ -3,7 +3,7 @@ import logging
 from constant.algo_type import AlgoType
 from ml.algo.none_model import NoneModel
 from ml.normalize import log_normalize
-
+import numpy as np
 log = logging.getLogger(__name__)
 
 
@@ -15,7 +15,7 @@ class CalcSegmentService:
     # input array of uuid,score
     def calc(self, algo_type: str, value_list):
         log.debug("calc() age_type={} value_list size={}".format(algo_type, len(value_list)))
-        normalize_value = log_normalize([value[1] for value in value_list])
+        normalize_value = np.array([log_normalize(value[1])[0] for value in value_list])
         value_list = list(zip([value[0] for value in value_list], normalize_value))
         threshold = self.get_model(algo_type).fit(normalize_value)
         return self.__filter_less_than_threshold(threshold, value_list)

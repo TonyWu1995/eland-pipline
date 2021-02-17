@@ -26,6 +26,7 @@ class ElandCriteriaBuilder:
     def only_build(self, criteria_key):
         result = ["uuid"]
         if criteria_key == "interest__tag":
+            result.append("interest__tag")
             result.append("interest__score")
         return result
 

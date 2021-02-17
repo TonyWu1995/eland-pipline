@@ -15,15 +15,9 @@ class ElandDataMongoService:
         self._db = get_db()
 
     def find_all_by_query_only(self, collection_name=None, q: Q = None, *field):
-        return self.__build_quert_set(collection_name).filter(q).all().only(*field)
+        return self.__build_query_set(collection_name).filter(q).all().only(*field)
 
-    # TODO test
-    def find_max_value_by_tag_name(self, collection_name=None, q: Q = None, order_by_tag_name=None, reverse=False):
-        if reverse:
-            order_by_tag_name = '-' + order_by_tag_name
-        return self.__build_quert_set(collection_name).filter(q).order_by(order_by_tag_name).first()
-
-    def __build_quert_set(self, collection_name=None):
+    def __build_query_set(self, collection_name=None):
         collection_name = self.__check_is_collection_name_is_none(collection_name)
         return QuerySet(ElandDataDocument,
                         ElandDataDocument().switch_collection(collection_name)._get_collection())

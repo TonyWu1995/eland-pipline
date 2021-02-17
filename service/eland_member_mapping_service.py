@@ -10,7 +10,6 @@ log = logging.getLogger(__name__)
 
 class ElandMemberMappingService:
 
-    # TODO mysql config
     def __init__(self, config: MysqlConfig):
         self.__default_table_name = config.table_name
         connection_url = "mysql+pymysql://{}:{}@{}:{}/{}".format(config.username, config.password, config.host,
