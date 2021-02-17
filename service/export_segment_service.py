@@ -6,7 +6,6 @@ from config.file_config import FileConfig
 
 log = logging.getLogger(__name__)
 
-
 class ExportSegmentService:
 
     def __init__(self, file_config: FileConfig):
