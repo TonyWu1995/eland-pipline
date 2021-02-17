@@ -21,7 +21,7 @@ log = logging.getLogger(__name__)
 
 
 def main(yml_conf_file_path, json_conf_file_path):
-    log.info("main() conf_file_path={}".format(yml_conf_file_path, json_conf_file_path))
+    log.info("main() conf_file_path={} {}".format(yml_conf_file_path, json_conf_file_path))
     eland_data_mongo_service = ElandDataMongoService(
         MongoDBConfig.build(load_yml_config(yml_conf_file_path, "mongodb")))
     eland_member_mapping_service = ElandMemberMappingService(

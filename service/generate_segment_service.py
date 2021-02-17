@@ -30,7 +30,7 @@ class GenerateSegmentService:
                                                             config.criteria_value)
         ctid_list = self.__member_mapping_service.find_all_ctid_by_uuid(self.__calc_ml_service.calc(config.algo,
                                                                                                     query_mongodb_result_list))
-        log.debug("generate() ctid size={}".format(len(ctid_list)))
+        log.info("generate() ctid size={}".format(len(ctid_list)))
         return ctid_list
 
     def _query_eland_data(self, day, criteria_key, criteria_value):
