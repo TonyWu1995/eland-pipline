@@ -1,0 +1,2 @@
+-r prod.txt
+mongomock==3.22.1

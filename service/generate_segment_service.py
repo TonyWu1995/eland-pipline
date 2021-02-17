@@ -3,12 +3,14 @@ import time
 
 from mongoengine import Q
 
+from config.segment_config import SegmentConfig
 from service.calc_segment_service import CalcSegmentService
 from service.eland_criteria_builder import ElandCriteriaBuilder
 from service.eland_member_mapping_service import ElandMemberMappingService
 from service.eland_mongo_service import ElandDataMongoService
 
 log = logging.getLogger(__name__)
+
 
 class GenerateSegmentService:
 
@@ -22,16 +24,16 @@ class GenerateSegmentService:
         self.__eland_criteria_builder = builder
         self.__calc_ml_service = calc_ml_service
 
-    def generate(self, config):
+    def generate(self, config: SegmentConfig):
         log.debug("generate() config={}".format(config))
-        query_mongodb_result_list = self.__query_eland_data(config.day, config.criteria_key,
+        query_mongodb_result_list = self._query_eland_data(config.day, config.criteria_key,
                                                             config.criteria_value)
         ctid_list = self.__member_mapping_service.find_all_ctid_by_uuid(self.__calc_ml_service.calc(config.algo,
                                                                                                     query_mongodb_result_list))
         log.debug("generate() ctid size={}".format(len(ctid_list)))
         return ctid_list
 
-    def __query_eland_data(self, day, criteria_key, criteria_value):
+    def _query_eland_data(self, day, criteria_key, criteria_value):
         log.info("__query() day={}, key={}, value={}".format(day, criteria_key, criteria_value))
         from_timestamp, to_timestamp = self.__calc_from_timestamp_and_to_timestamp(day)
         q = Q(**self.__eland_criteria_builder.query_build(criteria_key,

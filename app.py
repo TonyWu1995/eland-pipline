@@ -33,7 +33,6 @@ def main():
     export_segment_service = ExportSegmentService(
         (FileConfig.build(load_yml_config("./conf/application.yml", "file-config"))))
     for config in segment_config_list:
-        print(config.__dict__)
         try:
             ctid_list = generate_segment_service.generate(config)
             export_segment_service.save(config.export_file_name, ctid_list)
