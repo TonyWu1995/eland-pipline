@@ -28,11 +28,10 @@ class GenerateSegmentService:
         log.debug("generate() config={}".format(config))
         query_mongodb_result_list = self.__query_eland_data(config.day, config.criteria_key,
                                                             config.criteria_value)
-        self.__calc_ml_service.calc(config.algo, query_mongodb_result_list)
-        # ctid_list = self.__member_mapping_service.find_all_ctid_by_uuid(self.__calc_ml_service.calc(config.algo,
-        #                                                                                             query_mongodb_result_list))
-        # log.debug("generate() ctid size={}".format(len(ctid_list)))
-        # return ctid_list
+        ctid_list = self.__member_mapping_service.find_all_ctid_by_uuid(self.__calc_ml_service.calc(config.algo,
+                                                                                                    query_mongodb_result_list))
+        log.debug("generate() ctid size={}".format(len(ctid_list)))
+        return ctid_list
 
     def __query_eland_data(self, day, criteria_key, criteria_value):
         log.info("__query() day={}, key={}, value={}".format(day, criteria_key, criteria_value))
@@ -46,11 +45,15 @@ class GenerateSegmentService:
                                                               q,
                                                               *criteria_only)
         uuid_list = [eland_data_doc.uuid for eland_data_doc in query_list]
-        score_list = [[float(interest.score),
-                       max(eland_data_doc.interest, key=lambda item: item['score']).score] if len(
-            eland_data_doc.interest) > 0 else [0, 0]
-                      for eland_data_doc in query_list for interest in eland_data_doc.interest
-                      if interest.tag == criteria_value]
+        score_list = []
+        for eland_data_doc in query_list:
+            if len(eland_data_doc.interest) > 0:
+                for interest in eland_data_doc.interest:
+                    if interest.tag == criteria_value:
+                        score_list.append(
+                            [float(interest.score), max(eland_data_doc.interest, key=lambda item: item['score']).score])
+            else:
+                score_list.append([0, 0])
         return list(zip(uuid_list, score_list))
 
     def __calc_from_timestamp_and_to_timestamp(self, days):
