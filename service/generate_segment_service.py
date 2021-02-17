@@ -38,7 +38,6 @@ class GenerateSegmentService:
                                                           criteria_value,
                                                           from_timestamp,
                                                           to_timestamp))
-        print(q)
         criteria_only = self.__eland_criteria_builder.only_build(criteria_key)
         query_list = self.__mongo_repo.find_all_by_query_only(None,
                                                               q,

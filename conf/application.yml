@@ -11,7 +11,7 @@ mongodb:
   username: "admin"
   password: "admin"
   collection-name: "test_aggregate"
-# TODO CHECK
+
 mysql:
   host: "localhost"
   port: 3306
@@ -19,3 +19,6 @@ mysql:
   username: "admin"
   password: "admin"
   table-name: "aggregate_table"
+
+file-config:
+  save-segment-folder-path: "./segment/"

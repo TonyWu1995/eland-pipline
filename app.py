@@ -2,6 +2,7 @@ import logging
 from logging.config import fileConfig
 
 from config.config_loader import load_yml_config, load_json_config
+from config.file_config import FileConfig
 from config.mongodb_config import MongoDBConfig
 from config.mysql_config import MysqlConfig
 from config.segment_config import SegmentConfig
@@ -11,6 +12,7 @@ from service.calc_segment_service import CalcSegmentService
 from service.eland_criteria_builder import ElandCriteriaBuilder
 from service.eland_member_mapping_service import ElandMemberMappingService
 from service.eland_mongo_service import ElandDataMongoService
+from service.export_segment_service import ExportSegmentService
 from service.generate_segment_service import GenerateSegmentService
 
 logging.config.fileConfig('./logging_config.ini', disable_existing_loggers=False)
@@ -26,11 +28,17 @@ def main():
     segment_config_list = SegmentConfig.build_list(load_json_config("./conf/config.json")['segment'])
 
     calc_ml_service = CalcSegmentService(strategy_dict={AlgoType.KMEAN: KmeanModel()})
-    segment_service = GenerateSegmentService(eland_data_mongo_service, eland_member_mapping_service,
-                                             ElandCriteriaBuilder(), calc_ml_service)
+    generate_segment_service = GenerateSegmentService(eland_data_mongo_service, eland_member_mapping_service,
+                                                      ElandCriteriaBuilder(), calc_ml_service)
+    export_segment_service = ExportSegmentService(
+        (FileConfig.build(load_yml_config("./conf/application.yml", "file-config"))))
     for config in segment_config_list:
-        segment_service.generate(config)
-    pass
+        print(config.__dict__)
+        try:
+            ctid_list = generate_segment_service.generate(config)
+            export_segment_service.save(config.export_file_name, ctid_list)
+        except Exception as e:
+            log.error(e)
 
 
 if __name__ == '__main__':
