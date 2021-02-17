@@ -14,13 +14,18 @@ class ElandDataMongoService:
                                    authentication_source="admin")
         self._db = get_db()
 
+    # TODO test
     def find_all_by_query_only(self, collection_name=None, q: Q = None, *field):
+        return self.__build_quert_set(collection_name).filter(q).all().only(*field)
+
+    # TODO test
+    def find_max_value_by_tag_name(self, collection_name=None, q: Q = None, tag_name=None):
+        return self.__build_quert_set(collection_name).filter(q).order_by(tag_name).first()
+
+    def __build_quert_set(self, collection_name=None):
         collection_name = self.__check_is_collection_name_is_none(collection_name)
-        query_set = QuerySet(ElandDataDocument,
-                             ElandDataDocument()
-                             .switch_collection(collection_name)
-                             ._get_collection())
-        return query_set.filter(q).all().only(*field)
+        return QuerySet(ElandDataDocument,
+                        ElandDataDocument().switch_collection(collection_name)._get_collection())
 
     def __check_is_collection_name_is_none(self, collection_name):
         return self._default_collection_name if collection_name is None else collection_name

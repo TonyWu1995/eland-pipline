@@ -32,8 +32,6 @@ class GenerateSegmentService:
         log.debug("generate() ctid size={}".format(len(ctid_list)))
         return ctid_list
 
-        # todo table_name in conf
-
     def __query(self, day, criteria_key, criteria_value):
         log.debug("__query() day={}, key={}, value={}", day, criteria_key, criteria_value)
         from_timestamp, to_timestamp = self.__calc_from_timestamp_and_to_timestamp(day)
