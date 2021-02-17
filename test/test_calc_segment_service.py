@@ -18,26 +18,26 @@ class TestCalcMLService(TestCase):
 
     def test_calc_none_model_case1(self):
         service = CalcSegmentService(strategy_dict={})
-        result = service.calc("none", [['1', 123]])
+        result = service.calc("none", [('1', [123, 123])])
         self.assertEqual(result, ['1'])
 
     def test_calc_none_model_case2(self):
         service = CalcSegmentService(strategy_dict={})
-        result = service.calc("none", [['1', 123], ['2', 123]])
+        result = service.calc("none", [('1', [123, 123]), ('2', [123, 123])])
         self.assertEqual(result, ['1', '2'])
 
     def test_calc_kmean_model_case1(self):
         service = CalcSegmentService(strategy_dict={
             AlgoType.KMEAN: FakeKmeanModel(),
         })
-        result = service.calc("kmean", [['1', 123], ['2', 123]])
+        result = service.calc("kmean", [('1', [123, 123]), ('2', [123, 123])])
         self.assertEqual(result, ['1', '2'])
 
     def test_calc_kmean_model_case2(self):
         service = CalcSegmentService(strategy_dict={
             AlgoType.KMEAN: FakeKmeanModel(),
         })
-        result = service.calc("kmean", [['1', 99], ['2', 123]])
+        result = service.calc("kmean", [('1', [99, 123]), ('2', [123, 123])])
         print(result)
         self.assertEqual(result, ['2'])
 

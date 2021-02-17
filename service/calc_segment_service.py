@@ -12,9 +12,10 @@ class CalcSegmentService:
     def __init__(self, strategy_dict):
         self.__strategy_dict = strategy_dict
 
-    # input array of uuid,score
+    # input array of uuid,[score,max_value]
     def calc(self, algo_type: str, value_list):
         log.debug("calc() age_type={} value_list size={}".format(algo_type, len(value_list)))
+        print(value_list)
         normalize_value = np.array([log_normalize(value[1])[0] for value in value_list])
         value_list = list(zip([value[0] for value in value_list], normalize_value))
         threshold = self.get_model(algo_type).fit(normalize_value)

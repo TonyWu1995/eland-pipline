@@ -29,8 +29,8 @@ class GenerateSegmentService:
         query_mongodb_result_list = self.__query_eland_data(config.day, config.criteria_key,
                                                             config.criteria_value)
         self.__calc_ml_service.calc(config.algo, query_mongodb_result_list)
-        ctid_list = self.__member_mapping_service.find_all_ctid_by_uuid(self.__calc_ml_service.calc(config.algo,
-                                                                                                    query_mongodb_result_list))
+        # ctid_list = self.__member_mapping_service.find_all_ctid_by_uuid(self.__calc_ml_service.calc(config.algo,
+        #                                                                                             query_mongodb_result_list))
         # log.debug("generate() ctid size={}".format(len(ctid_list)))
         # return ctid_list
 
