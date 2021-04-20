@@ -1,0 +1,46 @@
+{
+  "segment": [
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "地區:大阪",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_location_osaka_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "地區:東京",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_location_tokyo_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "旅遊:國外旅遊",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_travel_travel_abroad_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "旅遊:自助旅遊",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_travel_travel_by_myself_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "音樂:日本音樂",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_music_japanese_music_{}_ctid_c{}"
+    },
+     {
+      "criteria_key": "interest__tag",
+      "criteria_value": "電視節目:日本節目",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_tv_japanese_tv_show_{}_ctid_c{}"
+    }
+  ]
+}

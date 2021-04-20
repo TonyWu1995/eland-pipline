@@ -1,0 +1,207 @@
+{
+  "segment": [
+    {
+      "criteria_key": "gender_tag",
+      "criteria_value": "FEMALE",
+      "algo": "None",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_gender_female_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "gender_tag",
+      "criteria_value": "MALE",
+      "algo": "None",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_gender_male_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "age_tag",
+      "criteria_value": "EIGHTEEN_TWENTY_FOUR",
+      "algo": "None",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_age_18_24_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "age_tag",
+      "criteria_value": "TWENTY_FIVE_THIRTY_FOUR",
+      "algo": "None",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_age_25_34_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "age_tag",
+      "criteria_value": "THIRTY_FIVE_FORTY_FOUR",
+      "algo": "None",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_age_35_44_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "age_tag",
+      "criteria_value": "FORTY_FIVE_FIFTH_FOUR",
+      "algo": "None",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_age_44_54_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "age_tag",
+      "criteria_value": "FIFTH_FOUR",
+      "algo": "None",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_age_55_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "新聞雜誌:商業與經濟新聞",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_business_and_economic_news_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "外幣:美金",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_finance_investment_and_finance_foreign_currency_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "快速消費品:3C",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_consumer_electronics_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "資訊科技:資訊科技",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_computer_and_peripheral_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "投資理財:房地產",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_real_estate_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "生涯階段:親子",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_baby_accessories_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "購物:賣場超市",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_supermarket_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "投資理財:股票投資",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_finance_investment_and_stocks_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "快速消費品:食品",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_food_and_dining_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "居家生活:家電",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_appliances_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "快速消費品:身體清潔保養",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_personal_hygiene_and_toiletries_body_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "汽車:汽車",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_car_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "金融服務:貸款",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_finance_credit_and_loans_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "投資理財:基金投資",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_finance_investment_and_fund_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "金融服務:信用卡",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_finance_credit_and_loan_credit_card_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "快速消費品:臉部彩妝",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_cosmetic_and_cosmetic_products_makeup_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "購物:藥妝店",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_cosmetic_trade_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "美容保養:專櫃保養品",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_cosmetic_and_cosmetic_products_counter_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "快速消費品:臉部清潔保養",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_personal_hygiene_and_toiletries_face_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "美容保養:開架保養品",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_cosmetic_and_cosmetic_products_open_shelf_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "性別:女性",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_gender_female_interest_{}_ctid_c{}"
+    },
+    {
+      "criteria_key": "interest__tag",
+      "criteria_value": "性別:男性",
+      "algo": "kmean",
+      "day": 30,
+      "export_file_name": "test_seg_tags_eland_gender_male_interest_{}_ctid_c{}"
+    }
+  ]
+}

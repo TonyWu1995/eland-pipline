@@ -1,24 +1,15 @@
-#mongodb:
-#  host: "192.168.101.41"
-#  port: 27017
-#  database: "eland_data"
-#  username: "admin"
-#  password: "admin"
-mongodb:
-  host: "127.0.0.1"
-  port: 27017
-  database: "eland_data"
-  username: "admin"
-  password: "admin"
-  collection-name: "test_aggregate"
-
-mysql:
-  host: "localhost"
-  port: 3306
-  database: "id_mapping_db"
-  username: "admin"
-  password: "admin"
-  table-name: "aggregate_table"
+eland:
+  mongodb:
+    host: "192.168.101.41"
+    port: 27017
+    database: "eland_data"
+    username: "admin"
+    password: "admin"
+    collection-name: "robin_aggregate"
+    cursor-batch-size: 10000
+  mysql:
+    url: "mysql+pymysql://root:admin@192.168.101.42:3306/id_mapping_table"
+    table-name: "id_mapping_aggreate"
 
 file-config:
   save-segment-folder-path: "./segment/"

@@ -1,5 +1,13 @@
-from mongoengine import DynamicEmbeddedDocument, StringField, FloatField, IntField, DynamicDocument, ListField, \
-    EmbeddedDocumentField, EnumField
+from mongoengine import (
+    DynamicEmbeddedDocument,
+    StringField,
+    FloatField,
+    IntField,
+    DynamicDocument,
+    ListField,
+    EmbeddedDocumentField,
+    EnumField
+)
 
 from constant.age import Age
 from constant.gender import Gender

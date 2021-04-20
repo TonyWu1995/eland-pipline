@@ -1,0 +1,9 @@
+version: '3'
+services:
+  eland:
+    container_name: eland-preprocessing
+    build: .
+    volumes:
+       - ./segment:/segment
+       - ./conf:/conf
+       - ./log:/log

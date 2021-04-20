@@ -1,0 +1,15 @@
+eland:
+  mongodb:
+    host: "mongomock://localhost"
+    port: 27017
+    database: "test"
+    username:
+    password:
+    collection-name: "eland_data"
+    cursor-batch-size: 1000
+  mysql:
+    url: "sqlite://"
+    table-name: "test_aggregate"
+
+file-config:
+  save-segment-folder-path: "./segment/"

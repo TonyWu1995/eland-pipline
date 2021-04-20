@@ -1,8 +1,9 @@
 import time
 from unittest import TestCase
 
-from mongoengine import Q, QuerySet
+from mongoengine import QuerySet
 
+from config.config_loader import load_yml_config
 from config.mongodb_config import MongoDBConfig
 from constant.age import Age
 from constant.gender import Gender
@@ -14,6 +15,13 @@ from service.eland_mongo_service import ElandDataMongoService
 
 
 class TestElandDataMongoService(TestCase):
+
+    def get_instance(self):
+        application_conf_file_path = './conf/application-test.yml'
+        config = load_yml_config(application_conf_file_path, "eland")
+        eland_data_mongo_service = ElandDataMongoService(
+            MongoDBConfig.build(config['mongodb']))
+        return eland_data_mongo_service
 
     def __delete(self):
         QuerySet(ElandDataDocument,
@@ -33,7 +41,7 @@ class TestElandDataMongoService(TestCase):
                 age_tag=Age.TWENTY_FIVE_THIRTY_FOUR,
                 income_tag=Income.ONE_HUNDRED,
                 create_at=123,
-                update_at=timestamp,
+                update_at=100,
                 sex=[48.81, 51.19],
                 income=[47.77, 23.21, 16.13, 12.89],
                 age=[33.0, 22.89, 14.45, 11.53, 18.13],
@@ -47,9 +55,7 @@ class TestElandDataMongoService(TestCase):
                 .save()
 
     def test_list_collection_names_have_value(self):
-        config = MongoDBConfig(database="test", host="mongomock://localhost", port=27017, username=None, password=None,
-                               collection_name="eland_data")
-        service = ElandDataMongoService(config)
+        service = self.get_instance()
         self.__save()
         result = service.list_collection_names()
 
@@ -58,34 +64,20 @@ class TestElandDataMongoService(TestCase):
         self.__delete()
 
     def test_find_all_by_query_only_empty(self):
-        config = MongoDBConfig(database="test", host="mongomock://localhost", port=27017, username=None, password=None,
-                               collection_name="eland_data")
-        service = ElandDataMongoService(config)
+        service = self.get_instance()
 
-        result = service.find_all_by_query_only(None, Q(**{"interest__tag": "族群:健身族"}), 'uuid')
+        result = service.find_all_batch(None, "interest__tag", "族群:健身族", 0, 10000)
 
         self.assertEqual(len(result), 0)
 
     def test_find_all_by_query_only(self):
-        config = MongoDBConfig(database="test", host="mongomock://localhost", port=27017, username=None, password=None,
-                               collection_name="eland_data")
-        service = ElandDataMongoService(config)
+        service = self.get_instance()
         self.__save()
 
-        result = service.find_all_by_query_only("test_aggregate", Q(**{"interest__tag": "族群:健身族"}), 'uuid')
+        result = service.find_all_batch("test_aggregate", "interest__tag", "族群:健身族", 0, 10000)
 
         self.assertEqual(len(result), 2)
-
-        self.__delete()
-
-    def test_find_all_by_query_only_none(self):
-        config = MongoDBConfig(database="test", host="mongomock://localhost", port=27017, username=None, password=None,
-                               collection_name="eland_data")
-        service = ElandDataMongoService(config)
-        self.__save()
-
-        result = service.find_all_by_query_only("test_aggregate", None, "uuid")
-
-        self.assertEqual(len(result), 2)
+        self.assertEqual(result[0][0], '0')
+        self.assertEqual(result[1][0], '1')
         self.__delete()
 
